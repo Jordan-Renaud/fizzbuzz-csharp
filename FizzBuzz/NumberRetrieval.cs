@@ -5,11 +5,12 @@ namespace FizzBuzz
     public class NumberRetrieval
     {
         public int maxNumber = 100;
-        public void GetNumberFromUser()
+        public int GetNumberFromUser()
         {
             bool haveNotFoundNumber = true;
+            int attempts = 0;
 
-            while (haveNotFoundNumber)
+            while (haveNotFoundNumber && attempts <= 2)
             {
                 int number;
 
@@ -21,16 +22,18 @@ namespace FizzBuzz
                 {
                     Console.WriteLine($"You chose: {number}\n");
                     haveNotFoundNumber = false;
-                    maxNumber = number;
+                    return number;
                 }
                 else
                 {
                     Console.WriteLine("\nSorry, that is not a number please try again.");
+                    attempts++;
                 }
             }
 
+            Console.WriteLine($"Problem setting a maximum number. Setting number to {maxNumber}.\n");
+            return maxNumber;
+
         }
-
-
     }
 }
