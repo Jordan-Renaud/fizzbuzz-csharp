@@ -1,4 +1,5 @@
 ﻿using System;
+using static FizzBuzz.NumberRetrieval;
 
 namespace FizzBuzz
 {
@@ -6,7 +7,10 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            NumberRetrieval numberRetrieval = new NumberRetrieval();
+            numberRetrieval.GetNumberFromUser();
+
+            Console.WriteLine(numberRetrieval.maxNumber);
         }
     }
 }
