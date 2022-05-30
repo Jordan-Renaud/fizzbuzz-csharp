@@ -2,7 +2,7 @@ namespace FizzBuzz
 {
     public class FizzBuzz
     {
-        private List<int> divisibleByNumbers = new List<int> { 3, 5 };
+        private List<int> divisibleByNumbers = new List<int> { 3, 5, 7 };
 
         private bool CheckForFizzBuzz(int number)
         {
@@ -24,22 +24,27 @@ namespace FizzBuzz
             {
                 if (num % divisibleByNumber == 0)
                 {
-                    switch (divisibleByNumber)
-                    {
-                        case 3:
-                            phraseSeparated.Add("Fizz");
-                            break;
-                        case 5:
-                            phraseSeparated.Add("Buzz");
-                            break;
-                        default:
-                            phraseSeparated.Add("");
-                            break;
-                    }
+                    string newWord = getWordFor(divisibleByNumber);
+                    phraseSeparated.Add(newWord);
                 }
             }
             string phrase = string.Join("", phraseSeparated);
             return phrase;
+        }
+
+        private string getWordFor(int divisibleByNumber)
+        {
+            switch (divisibleByNumber)
+            {
+                case 3:
+                    return "Fizz";
+                case 5:
+                    return "Buzz";
+                case 7:
+                    return "Bang";
+                default:
+                    return "";
+            }
         }
 
         public void DoFizzBuzz(int maxNumber)
@@ -49,11 +54,11 @@ namespace FizzBuzz
                 if (CheckForFizzBuzz(i))
                 {
                     string phrase = SetPhraseFor(i);
-                    Console.WriteLine(phrase);
+                    Console.WriteLine($"\t{phrase}");
                 }
                 else
                 {
-                    Console.WriteLine(i);
+                    Console.WriteLine($"\t{i}");
                 }
 
             }
