@@ -1,8 +1,4 @@
-﻿using System;
-using static FizzBuzz.NumberRetrieval;
-using static FizzBuzz.FizzBuzz;
-
-namespace FizzBuzz
+﻿namespace FizzBuzz
 {
     public class Program
     {
@@ -13,6 +9,16 @@ namespace FizzBuzz
 
             int maxNumber = numberRetrieval.GetNumberFromUser();
             fizzBuzz.DoFizzBuzz(maxNumber);
+
+            // List<Rule> rules = new List<Rule> { new AdditionRule(), new ReplacementRule(), new AdditionRule() };
+
+            // string aString = "";
+            // foreach (var rule in rules)
+            // {
+            //     aString = rule.ApplyRule(aString);
+            // }
+
+            // Console.WriteLine(aString);
         }
     }
 }
